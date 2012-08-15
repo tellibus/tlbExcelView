@@ -72,7 +72,7 @@ Based on the standard Gii / Giix admin action
 </div><!-- search-form -->
 
 …
-<?php $this->widget('application.components.widgets.EExcelView', array(
+<?php $this->widget('application.components.widgets.tlbExcelView', array(
     'id'                   => 'some-grid',
     'dataProvider'         => $model->search(),
     'grid_mode'            => $production, // Same usage as EExcelView v0.33

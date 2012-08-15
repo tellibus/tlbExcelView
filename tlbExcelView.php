@@ -8,14 +8,14 @@ Yii::import('zii.widgets.grid.CGridView');
 * @link http://yiiframework.com/extension/eexcelview/
 *
 * @fork 0.33ab
-* @author Abdelaziz Bennouna
+* @author A. Bennouna
 * @organization tellibus.com
 * @license MIT License
 * @link https://github.com/tellibus/tlbExcelView
 */
 
 /* Usage :
-  $this->widget('application.components.widgets.EExcelView', array(
+  $this->widget('application.components.widgets.tlbExcelView', array(
     'id'                   => 'some-grid',
     'dataProvider'         => $model->search(),
     'grid_mode'            => $production, // Same usage as EExcelView v0.33
@@ -52,7 +52,7 @@ Yii::import('zii.widgets.grid.CGridView');
     'columns'              => $grid // an array of your CGridColumns
 )); */
 
-class EExcelView extends CGridView
+class tlbExcelView extends CGridView
 {
     //the PHPExcel object
     public $libPath = 'ext.phpexcel.Classes.PHPExcel'; //the path to the PHP excel lib
@@ -65,10 +65,10 @@ class EExcelView extends CGridView
     public $subject = 'Subject';
     public $description = '';
     public $category = '';
-    public $lastModifiedBy = 'Abdelaziz Bennouna';
+    public $lastModifiedBy = 'A. Bennouna';
     public $keywords = '';
     public $sheetTitle = '';
-    public $legal = 'PHPExcel generator http://phpexcel.codeplex.com/ - EExcelView Yii extension http://yiiframework.com/extension/eexcelview/ - Adaptation by Abdelaziz Bennouna http://tellibus.com';
+    public $legal = 'PHPExcel generator http://phpexcel.codeplex.com/ - EExcelView Yii extension http://yiiframework.com/extension/eexcelview/ - Adaptation by A. Bennouna http://tellibus.com';
     public $landscapeDisplay = false;
     public $A4 = false;
     public $pageFooterText = '&RPage &P of &N';
