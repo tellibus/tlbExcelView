@@ -8,6 +8,7 @@ Yii::import('zii.widgets.grid.CGridView');
 * @link http://yiiframework.com/extension/eexcelview/
 *
 * @fork 0.33ab
+* @forkversion 1.1
 * @author A. Bennouna
 * @organization tellibus.com
 * @license MIT License
@@ -30,6 +31,7 @@ Yii::import('zii.widgets.grid.CGridView');
     'category'             => '',
     'landscapeDisplay'     => true, // Default: false
     'A4'                   => true, // Default: false - ie : Letter (PHPExcel default)
+    'RTL'                  => false, // Default: false
     'pageFooterText'       => '&RThis is page no. &P of &N pages', // Default: '&RPage &P of &N'
     'automaticSum'         => true, // Default: false
     'decimalSeparator'     => ',', // Default: '.'
@@ -71,6 +73,7 @@ class tlbExcelView extends CGridView
     public $legal = 'PHPExcel generator http://phpexcel.codeplex.com/ - EExcelView Yii extension http://yiiframework.com/extension/eexcelview/ - Adaptation by A. Bennouna http://tellibus.com';
     public $landscapeDisplay = false;
     public $A4 = false;
+    public $RTL = false;
     public $pageFooterText = '&RPage &P of &N';
 
     //config
@@ -197,9 +200,15 @@ class tlbExcelView extends CGridView
             if ($this->landscapeDisplay) {
                 self::$activeSheet->getPageSetup()->setOrientation(self::$orientation_landscape);
             }
+
             if ($this->A4) {
                 self::$activeSheet->getPageSetup()->setPaperSize(self::$papersize_A4);
             }
+
+            if ($this->RTL) {
+                self::$activeSheet->setRightToLeft(true);
+            }
+
             self::$objPHPExcel->getProperties()
                 ->setTitle($this->title)
                 ->setCreator($this->creator)
