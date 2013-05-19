@@ -1,7 +1,11 @@
 tlbExcelView
 ============
 
-Another Yii CGridView-to-Excel exporter using PHPExcel, based on EExcelView http://yiiframework.com/extension/eexcelview/
+Homepage
+--------
+[http://tellibus.com/lab/tlbExcelView](http://tellibus.com/lab/tlbExcelView)
+
+Another Yii CGridView-to-Excel exporter using [PHPExcel](http://phpexcel.codeplex.com/), based on [EExcelView Yii extension](http://yiiframework.com/extension/eexcelview/)
 
 Tested with:
 
@@ -12,7 +16,7 @@ Installation
 ------------
 
  - Create a folder named **phpexcel** in your **/protected/extensions** folder
- - Download PHPExcel from http://phpexcel.codeplex.com/
+ - Download PHPExcel from [http://phpexcel.codeplex.com/](http://phpexcel.codeplex.com/)
  - Unpack its **Classes** folder in your **/protected/extensions/phpexcel**
  - Copy the **tlbExcelView.php** file in your widgets directory, in this example **/protected/components/widgets**
 
