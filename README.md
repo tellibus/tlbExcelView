@@ -1,16 +1,17 @@
 tlbExcelView
 ============
 
-Homepage
---------
-[http://tellibus.com/lab/tlbExcelView](http://tellibus.com/lab/tlbExcelView)
-
 Another Yii CGridView-to-Excel exporter using [PHPExcel](http://phpexcel.codeplex.com/), based on [EExcelView Yii extension](http://yiiframework.com/extension/eexcelview/)
 
 Tested with:
 
  - Yii 1.1.10
  - PHPExcel 1.7.7
+
+
+Homepage
+--------
+[http://tellibus.com/lab/tlbExcelView](http://tellibus.com/lab/tlbExcelView)
 
 Installation
 ------------
@@ -33,7 +34,7 @@ Features
 Example of use
 --------------
 
-This is an example of use of EExcelView in the controller and view:
+This is an example of use of tlbExcelView in the controller and view:
 
 ### Controller
 
