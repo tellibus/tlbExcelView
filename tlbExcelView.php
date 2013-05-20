@@ -105,6 +105,7 @@ class tlbExcelView extends CGridView
     public $footerBgColor = 'FFFFCC';
     public $footerTextColor = '0000FF';
     public $footerHeight = 20;
+    public $zoomScale = 50;
     public static $fill_solid;
     public static $papersize_A4;
     public static $orientation_landscape;
@@ -455,7 +456,7 @@ class tlbExcelView extends CGridView
             // Set some additional properties
             self::$activeSheet
                 ->setTitle($this->sheetTitle)
-                ->getSheetView()->setZoomScale(50);
+                ->getSheetView()->setZoomScale($this->zoomScale);
             self::$activeSheet->getHeaderFooter()
                 ->setOddHeader('&C' . $this->sheetTitle)
                 ->setOddFooter('&L&B' . self::$objPHPExcel->getProperties()->getTitle() . $this->pageFooterText);
