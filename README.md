@@ -111,6 +111,7 @@ Based on the standard Gii / Giix admin action
     'footerBgColor'        => '00FFCC', // Default: 'FFFFCC'
     'footerTextColor'      => 'FF00FF', // Default: '0000FF'
     'footerHeight'         => 50, // Default: 20
+    'zoomScale'            => 75, // Default: 100
     'columns'              => $grid // an array of your CGridColumns
 )); ?>
 ```
