@@ -105,7 +105,7 @@ class tlbExcelView extends CGridView
     public $footerBgColor = 'FFFFCC';
     public $footerTextColor = '0000FF';
     public $footerHeight = 20;
-    public $zoomScale = 50;
+    public $zoomScale = 100;
     public static $fill_solid;
     public static $papersize_A4;
     public static $orientation_landscape;
