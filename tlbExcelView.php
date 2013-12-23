@@ -403,11 +403,11 @@ class tlbExcelView extends CGridView
                 $cell = self::$activeSheet->setCellValue($this->columnName($a) . ($row + 2), '=SUM(' . $this->columnName($a) . '2:' . $this->columnName($a) . ($row + 1) . ')', true);
                 $sum = self::$activeSheet->getCell($this->columnName($a) . ($row + 2))->getCalculatedValue();
                 if ($sum < 1000) {
-                    $format = '0.00';                    
+                    $format = '0' . $this->decimalSeparator . '00';                    
                 } else if ($sum < 1000000) {
-                    $format = '#\.##0.00';
+                    $format = '#\\' . $this->thousandsSeparator . '##0' . $this->decimalSeparator . '00';   
                 } else {
-                    $format = '#\.###\.##0.00';
+                    $format = '#\\' . $this->thousandsSeparator . '###\\' . $this->thousandsSeparator . '##0' . $this->decimalSeparator . '00';   
                 }
 
                 // We won't set the whole row's borders and number format, so proceed with each cell individually
