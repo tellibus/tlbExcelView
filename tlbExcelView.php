@@ -126,6 +126,7 @@ class tlbExcelView extends CGridView
     public $onRenderHeaderCell = null;
     public $onRenderDataCell = null;
     public $onRenderFooterCell = null;
+    public $onSetSheetProperties = null;    
     
     //mime types used for streaming
     public $mimeTypes = array(
@@ -373,9 +374,20 @@ class tlbExcelView extends CGridView
                 self::$activeSheet->getStyle($this->columnName($a) . ($row + 2))->getNumberFormat()->setFormatCode($format);
             }
 
+						// Cell Value callback.
             if(is_callable($this->onRenderDataCell)) {
-                call_user_func_array($this->onRenderDataCell, array($cell, $data[$row], $value));
+                // Summable Column has to be passed as pointer and separate from its array (and later overwritten), because pass-by-reference doesn't work as expected.
+								$summableColumn = empty(self::$summableColumns[$a]) ? null : self::$summableColumns[$a]; 
+                
+                call_user_func_array($this->onRenderDataCell, array(&$cell, $data[$row], $value, $a, $column, &$summableColumn));
+
+								// Overwrite summable Column
+								if (empty($summableColumn))
+									unset(self::$summableColumns[$a]);
+								else
+									self::$summableColumns[$a] = $summableColumn;
             }
+
         }
 
         // Format the row globally
@@ -463,6 +475,11 @@ class tlbExcelView extends CGridView
             self::$activeSheet->getPageSetup()
                 ->setPrintArea('A1:' . $this->columnName(count($this->columns)) . ($row + 2))
                 ->setFitToWidth();
+
+						// Sheet Properties Callback.
+						if(is_callable($this->onSetSheetProperties)) {
+								call_user_func_array($this->onSetSheetProperties, array($this, self::$activeSheet));				
+						}
 
             //create writer for saving
             $objWriter = PHPExcel_IOFactory::createWriter(self::$objPHPExcel, $this->exportType);
