@@ -313,7 +313,7 @@ class tlbExcelView extends CGridView
             //if needed disable paging to export all data
             $this->dataProvider->pagination = false;
         }
-        $data = $this->dataProvider->getData();
+        $data = $this->dataProvider->getData(true);
         $n = count($data);
 
         if ($n > 0) {
